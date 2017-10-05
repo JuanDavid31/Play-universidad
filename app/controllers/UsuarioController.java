@@ -1,6 +1,5 @@
 package controllers;
 
-import io.ebean.Finder;
 import models.UsuarioEntity;
 import play.mvc.Controller;
 
@@ -13,13 +12,21 @@ public class UsuarioController extends Controller {
         return UsuarioEntity.find.all();
     }
 
-    public static void adicionar(UsuarioEntity usuario){
+    public static UsuarioEntity darUsuario(int id){
+        return UsuarioEntity.find.ref(id);
+    }
+
+    public static void guardar(UsuarioEntity usuario){
         usuario.save();
+    }
+
+    public static void actualizar(UsuarioEntity antiguo, UsuarioEntity nuevo){
+        antiguo.setdNombre(nuevo.getdNombre());
+        guardar(antiguo);
     }
 
     public static void eliminar(UsuarioEntity usuario){
         usuario.delete();
     }
-
 
 }

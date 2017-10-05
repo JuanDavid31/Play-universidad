@@ -1,0 +1,16 @@
+@(canciones: List[CancionEntity])
+@plantilla("Canciones"){
+    <div class="tabla">
+        <div class="cabecera">
+            <a class="btn btn-primary btn-block" href="@routes.SuperController.adicionarCancion()">Agregar cancion</a>
+        </div>
+        <div class="filas">
+        @for(cancion <- canciones){
+            <div class="fila">
+                <p>@cancion.getdNombre()</p>
+                <a class="btn btn-danger" href="@routes.SuperController.?:">Eliminar</a>
+            </div>
+        }
+        </div>
+    </div>
+}

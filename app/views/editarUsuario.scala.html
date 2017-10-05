@@ -1,0 +1,12 @@
+@(formulario: Form[UsuarioEntity])
+@import helper._
+@import views.html._formulario
+@plantilla("Editar usuario"){
+    <div id="div-editar">
+        <h1>Editar usuario</h1>
+        @helper.form(action = helper.CSRF(routes.SuperController.actualizarUsuario(formulario.get().getcId()))){
+            @_formulario(formulario)
+            <input class="btn btn-primary btn-block" type="submit" value="Actualizar">
+        }
+    </div>
+}

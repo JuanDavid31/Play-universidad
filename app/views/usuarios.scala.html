@@ -1,0 +1,17 @@
+@(usuarios: List[UsuarioEntity])
+@plantilla("Usuarios"){
+    <div class="tabla">
+        <div class="cabecera">
+            <a class="btn btn-primary btn-block" href="@routes.SuperController.adicionarUsuario()">Agregar usuario</a>
+        </div>
+        <div class="filas">
+            @for(usuario <- usuarios){
+                <div class="fila">
+                    <p>@usuario.getdNombre()</p>
+                    <a class="btn btn-info" href="@routes.SuperController.editarUsuario(usuario.getcId())">Editar</a>
+                    <a class="btn btn-danger" href="@routes.SuperController.eliminarUsuario(usuario.getcId())">Eliminar</a>
+                </div>
+            }
+        </div>
+    </div>
+}

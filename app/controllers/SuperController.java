@@ -1,41 +1,53 @@
 package controllers;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import io.ebean.Ebean;
-import models.CancionEntity;
-import models.UsuarioEntity;
-import play.db.jpa.Transactional;
-import play.libs.Json;
-import play.mvc.Controller;
-import play.mvc.Result;
-
-import java.math.BigInteger;
+import models.*;
+import play.mvc.*;
+import views.html.*;
+import javax.inject.*;
+import play.data.*;
 import java.util.List;
 
 public class SuperController extends Controller {
 
-    public Result indice(){
+    @Inject
+    private FormFactory fForms;
 
-        return TODO;
+    public Result indice(){
+        return ok(index.render());
     }
 
     public Result mostrarUsuarios(){
-        List<UsuarioEntity> usuarios = UsuarioController.darTodos();
-        JsonNode json = Json.toJson(usuarios);
-        return ok( json );
+        List<UsuarioEntity> todos = UsuarioController.darTodos();
+        return ok(usuarios.render(todos));
     }
     
-    public Result adicionarUsuario(int id, String nombre){
+    public Result adicionarUsuario(){
+        Form<UsuarioEntity> formulario = fForms.form(UsuarioEntity.class);
+        return ok(adicionarUsuario.render(formulario));
+    }
 
-        UsuarioEntity usuario = new UsuarioEntity();
-        usuario.setcId(id);
-        usuario.setdNombre(nombre);
-        UsuarioController.adicionar(usuario);
+    public Result guardarUsuario(){
+        Form<UsuarioEntity> formulario = fForms.form(UsuarioEntity.class).bindFromRequest();
+        UsuarioEntity usuario = formulario.get();
+        UsuarioController.guardar(usuario);
+        return redirect("/usuarios");
+    }
+
+    public Result editarUsuario(int id){
+        UsuarioEntity usuario = UsuarioController.darUsuario(id);
+        Form<UsuarioEntity> formulario = fForms.form(UsuarioEntity.class).fill(usuario);
+        return ok(editarUsuario.render(formulario));
+    }
+
+    public Result actualizarUsuario(int id){
+        UsuarioEntity nuevo = fForms.form(UsuarioEntity.class).bindFromRequest().get();
+        UsuarioEntity antiguo = UsuarioController.darUsuario(id);
+        UsuarioController.actualizar(antiguo, nuevo);
         return redirect("/usuarios");
     }
 
     public Result eliminarUsuario(int id){
-        UsuarioEntity usuario = UsuarioEntity.find.ref(id);
+        UsuarioEntity usuario = UsuarioController.darUsuario(id);
         UsuarioController.eliminar(usuario);
         return redirect("/usuarios");
     }
@@ -46,17 +58,38 @@ public class SuperController extends Controller {
             int randomNumber = (int)(Math.random()*1000);
             usuario.setcId(randomNumber);
             usuario.setdNombre("Pacho " + randomNumber);
-            UsuarioController.adicionar(usuario);
+            UsuarioController.guardar(usuario);
         }
         return redirect("/usuarios");
     }
 
     public Result eliminarUsuarios(){
         List<UsuarioEntity> usuarios = UsuarioController.darTodos();
-        for(int i = 0; i < usuarios.size(); i++){
-            System.out.println(usuarios.get(i).toString() + " " + usuarios.get(i).delete());
+        for(UsuarioEntity usuario : usuarios){
+            System.out.println(usuario.toString() + " " + usuario.delete());
         }
         return redirect("/usuarios");
+    }
+
+    public Result mostrarCanciones(){
+        List<CancionEntity> todas = CancionController.darTodos();
+        return ok(canciones.render(todas));
+    }
+
+    public Result adicionarCancion(){
+        Form<CancionEntity> formulario = fForms.form(CancionEntity.class);
+        return ok(adicionarCancion.render(formulario));
+    }
+
+    public Result subirCancion(){
+
+        return redirect("/canciones");
+    }
+
+    public Result eliminarCancion(int id){
+        CancionEntity cancion = CancionController.darCancion(id);
+        CancionController.eliminar(cancion);
+        return redirect("/canciones");
     }
 
 }

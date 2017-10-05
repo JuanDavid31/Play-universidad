@@ -1,0 +1,12 @@
+@(formulario: Form[UsuarioEntity])
+@import helper._
+@import views.html._formulario
+@plantilla("Adicionar usuario"){
+    <div>
+        <h1>Agregar usuario</h1>
+            @helper.form(action = helper.CSRF( routes.SuperController.guardarUsuario() ) ){
+                @_formulario(formulario)
+                <input class="btn btn-primary btn-block" type="submit" value="Guardar">
+            }
+    </div>
+}
