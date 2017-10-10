@@ -5,6 +5,9 @@ import play.mvc.*;
 import views.html.*;
 import javax.inject.*;
 import play.data.*;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class SuperController extends Controller {
@@ -72,24 +75,42 @@ public class SuperController extends Controller {
     }
 
     public Result mostrarCanciones(){
-        List<CancionEntity> todas = CancionController.darTodos();
-        return ok(canciones.render(todas));
+        String id = session("conectado");
+        if(id != null){
+            List<CancionEntity> todas = UsuarioController.darUsuario(Integer.parseInt(id)).getCanciones();
+            return ok(canciones.render(todas));
+        }
+        return badRequest("Debe iniciar sesion");
     }
 
     public Result adicionarCancion(){
-        Form<CancionEntity> formulario = fForms.form(CancionEntity.class);
-        return ok(adicionarCancion.render(formulario));
+        return ok(adicionarCancion.render());
     }
 
     public Result subirCancion(){
-
-        return redirect("/canciones");
+        Http.MultipartFormData<File> body = request().body().asMultipartFormData();
+        try {
+            return CancionController.subirCancion(body);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return badRequest("La cancion no se pudo subir");
+        }
     }
 
     public Result eliminarCancion(int id){
         CancionEntity cancion = CancionController.darCancion(id);
         CancionController.eliminar(cancion);
         return redirect("/canciones");
+    }
+
+    public Result iniciarSesion(int id){
+        session("conectado",Integer.toString(id));
+        return indice();
+    }
+
+    public Result cerrarSesion(){
+        session().clear();
+        return indice();
     }
 
 }

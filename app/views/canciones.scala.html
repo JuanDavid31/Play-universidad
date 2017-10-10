@@ -1,4 +1,5 @@
 @(canciones: List[CancionEntity])
+@import helper._
 @plantilla("Canciones"){
     <div class="tabla">
         <div class="cabecera">
@@ -8,7 +9,12 @@
         @for(cancion <- canciones){
             <div class="fila">
                 <p>@cancion.getdNombre()</p>
-                <a class="btn btn-danger" href="@routes.SuperController.?:">Eliminar</a>
+                <audio src="@cancion.getdUri()" controls>
+                    Your browser does not support audio.
+                </audio>
+                @helper.form(action = helper.CSRF(routes.SuperController.eliminarCancion(cancion.getcId()))){
+                    <input class="btn btn-danger" type="submit" value="Eliminar">
+                }
             </div>
         }
         </div>

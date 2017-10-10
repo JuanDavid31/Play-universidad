@@ -4,7 +4,7 @@
 		module="play-java-starter-example_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170927091111"
+		publication="20171010191445"
 	>
 		<description>
 		play-java-starter-example
@@ -58,10 +58,11 @@
 		<dependency org="com.typesafe.play" name="play-jdbc_2.12" rev="2.6.3" conf="compile->default(compile)"/>
 		<dependency org="com.h2database" name="h2" rev="1.4.194" conf="compile->default(compile)"/>
 		<dependency org="org.postgresql" name="postgresql" rev="9.3-1100-jdbc4" conf="compile->default(compile)"/>
-		<dependency org="org.assertj" name="assertj-core" rev="3.6.2" conf="test->default(compile)"/>
-		<dependency org="org.awaitility" name="awaitility" rev="2.0.0" conf="test->default(compile)"/>
+		<dependency org="com.cloudinary" name="cloudinary-http44" rev="1.13.0" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-java-jdbc_2.12" rev="2.6.3" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-ahc-ws_2.12" rev="2.6.3" conf="test->default(compile)"/>
+		<dependency org="org.awaitility" name="awaitility" rev="2.0.0" conf="test->default(compile)"/>
+		<dependency org="org.assertj" name="assertj-core" rev="3.6.2" conf="test->default(compile)"/>
 		<dependency org="org.mockito" name="mockito-core" rev="2.1.0" conf="test->default(compile)"/>
 		<dependency org="postgresql" name="postgresql" rev="9.1-901.jdbc4" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc-evolutions_2.12" rev="2.6.3" conf="compile->default(compile)"/>

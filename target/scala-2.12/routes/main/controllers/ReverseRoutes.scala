@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/play-java-starter-example/conf/routes
-// @DATE:Thu Sep 28 21:58:52 COT 2017
+// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/conf/routes
+// @DATE:Tue Oct 10 19:17:43 COT 2017
 
 import play.api.mvc.Call
 
@@ -9,62 +9,116 @@ import play.api.mvc.Call
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:14
+// @LINE:8
 package controllers {
 
-  // @LINE:16
+  // @LINE:8
   class ReverseSuperController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
+    // @LINE:36
+    def cerrarSesion(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "cerrarSesion")
+    }
+  
     // @LINE:16
+    def editarUsuario(id:Integer): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "editarUsuario" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Integer]].unbind("id", id)))))
+    }
+  
+    // @LINE:26
+    def mostrarCanciones(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "canciones")
+    }
+  
+    // @LINE:8
     def indice(): Call = {
       
       Call("GET", _prefix)
     }
   
-    // @LINE:20
-    def adicionarUsuario(id:Int, nombre:String): Call = {
+    // @LINE:30
+    def subirCancion(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "agregarUsuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("nombre", nombre)))
+      Call("POST", _prefix + { _defaultPrefix } + "subirCancion")
     }
   
-    // @LINE:26
+    // @LINE:14
+    def guardarUsuario(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "guardarUsuario")
+    }
+  
+    // @LINE:18
+    def actualizarUsuario(id:Int): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "actualizarUsuario" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+    // @LINE:28
+    def adicionarCancion(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "adicionarCancion")
+    }
+  
+    // @LINE:24
     def eliminarUsuarios(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "eliminarUsuarios")
     }
   
-    // @LINE:18
+    // @LINE:10
     def mostrarUsuarios(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "usuarios")
     }
   
-    // @LINE:24
+    // @LINE:22
     def agregarUsuariosRandom(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "agregarUsuariosRandom")
+      Call("GET", _prefix + { _defaultPrefix } + "adicionarUsuariosRandom")
     }
   
-    // @LINE:22
+    // @LINE:34
+    def iniciarSesion(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "iniciarSesion" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+    // @LINE:20
     def eliminarUsuario(id:Int): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "eliminarUsuario/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id)))
+      Call("GET", _prefix + { _defaultPrefix } + "eliminarUsuario" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+    // @LINE:32
+    def eliminarCancion(id:Int): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "eliminarCancion" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+    }
+  
+    // @LINE:12
+    def adicionarUsuario(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "adicionarUsuario")
     }
   
   }
 
-  // @LINE:14
+  // @LINE:38
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:14
+    // @LINE:38
     def versioned(file:Asset): Call = {
       implicit val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

@@ -7,16 +7,77 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile"
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170927091111"/>
+		date="20171010191446"/>
 	<dependencies>
 		<module organisation="postgresql" name="postgresql">
-			<revision name="9.1-901.jdbc4" status="release" pubdate="20111123145802" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jdbc.postgresql.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="95">
+			<revision name="9.1-901.jdbc4" status="release" pubdate="20111123145802" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jdbc.postgresql.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="101">
 				<license name="BSD License" url="http://jdbc.postgresql.org/license.html"/>
 				<metadata-artifact status="no" details="" size="2505" time="0" location="C:\Users\JuanDavid\.ivy2\cache\postgresql\postgresql\ivy-9.1-901.jdbc4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/postgresql/postgresql/9.1-901.jdbc4/postgresql-9.1-901.jdbc4.pom"/>
 				<caller organisation="play-java-starter-example" name="play-java-starter-example_2.12" conf="compile" rev="9.1-901.jdbc4" rev-constraint-default="9.1-901.jdbc4" rev-constraint-dynamic="9.1-901.jdbc4" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
 					<artifact name="postgresql" type="jar" ext="jar" status="no" details="" size="539705" time="0" location="C:\Users\JuanDavid\.ivy2\cache\postgresql\postgresql\jars\postgresql-9.1-901.jdbc4.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/postgresql/postgresql/9.1-901.jdbc4/postgresql-9.1-901.jdbc4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.cloudinary" name="cloudinary-http44">
+			<revision name="1.13.0" status="release" pubdate="20170613041555" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/cloudinary/cloudinary_java" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="95">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="4169" time="0" location="C:\Users\JuanDavid\.ivy2\cache\com.cloudinary\cloudinary-http44\ivy-1.13.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/cloudinary/cloudinary-http44/1.13.0/cloudinary-http44-1.13.0.pom"/>
+				<caller organisation="play-java-starter-example" name="play-java-starter-example_2.12" conf="compile" rev="1.13.0" rev-constraint-default="1.13.0" rev-constraint-dynamic="1.13.0" callerrev="1.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="cloudinary-http44" type="jar" ext="jar" status="no" details="" size="14260" time="0" location="C:\Users\JuanDavid\.ivy2\cache\com.cloudinary\cloudinary-http44\jars\cloudinary-http44-1.13.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/cloudinary/cloudinary-http44/1.13.0/cloudinary-http44-1.13.0.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpmime">
+			<revision name="4.4" status="release" pubdate="20150127155758" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="100">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9398" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.httpcomponents\httpmime\ivy-4.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.4/httpmime-4.4.pom"/>
+				<caller organisation="com.cloudinary" name="cloudinary-http44" conf="default, compile, runtime, master" rev="4.4" rev-constraint-default="4.4" rev-constraint-dynamic="4.4" callerrev="1.13.0"/>
+				<artifacts>
+					<artifact name="httpmime" type="jar" ext="jar" status="no" details="" size="40627" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.httpcomponents\httpmime\jars\httpmime-4.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.4/httpmime-4.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpclient">
+			<revision name="4.4" status="release" pubdate="20150127155722" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="97">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9882" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.httpcomponents\httpclient\ivy-4.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.4/httpclient-4.4.pom"/>
+				<caller organisation="com.cloudinary" name="cloudinary-http44" conf="default, compile, runtime, master" rev="4.4" rev-constraint-default="4.4" rev-constraint-dynamic="4.4" callerrev="1.13.0"/>
+				<caller organisation="org.apache.httpcomponents" name="httpmime" conf="compile, runtime" rev="4.4" rev-constraint-default="4.4" rev-constraint-dynamic="4.4" callerrev="4.4"/>
+				<artifacts>
+					<artifact name="httpclient" type="jar" ext="jar" status="no" details="" size="719304" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.httpcomponents\httpclient\jars\httpclient-4.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.4/httpclient-4.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpcore">
+			<revision name="4.4" status="release" pubdate="20141214073052" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core-ga" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="98">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="7684" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.httpcomponents\httpcore\ivy-4.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4/httpcore-4.4.pom"/>
+				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="4.4" rev-constraint-default="4.4" rev-constraint-dynamic="4.4" callerrev="4.4"/>
+				<artifacts>
+					<artifact name="httpcore" type="jar" ext="jar" status="no" details="" size="321639" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.httpcomponents\httpcore\jars\httpcore-4.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4/httpcore-4.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.cloudinary" name="cloudinary-core">
+			<revision name="1.13.0" status="release" pubdate="20170613035859" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/cloudinary/cloudinary_java" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="96">
+				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
+				<metadata-artifact status="no" details="" size="3428" time="0" location="C:\Users\JuanDavid\.ivy2\cache\com.cloudinary\cloudinary-core\ivy-1.13.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/cloudinary/cloudinary-core/1.13.0/cloudinary-core-1.13.0.pom"/>
+				<caller organisation="com.cloudinary" name="cloudinary-http44" conf="default, compile, runtime, master" rev="1.13.0" rev-constraint-default="1.13.0" rev-constraint-dynamic="1.13.0" callerrev="1.13.0"/>
+				<artifacts>
+					<artifact name="cloudinary-core" type="jar" ext="jar" status="no" details="" size="121535" time="0" location="C:\Users\JuanDavid\.ivy2\cache\com.cloudinary\cloudinary-core\jars\cloudinary-core-1.13.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/cloudinary/cloudinary-core/1.13.0/cloudinary-core-1.13.0.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -139,7 +200,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-jdbc-evolutions_2.12">
-			<revision name="2.6.3" status="release" pubdate="20170811150542" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="96">
+			<revision name="2.6.3" status="release" pubdate="20170811150542" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="102">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3384" time="0" location="C:\Users\JuanDavid\.ivy2\cache\com.typesafe.play\play-jdbc-evolutions_2.12\ivy-2.6.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-jdbc-evolutions_2.12/2.6.3/play-jdbc-evolutions_2.12-2.6.3.pom"/>
 				<caller organisation="play-java-starter-example" name="play-java-starter-example_2.12" conf="compile" rev="2.6.3" rev-constraint-default="2.6.3" rev-constraint-dynamic="2.6.3" callerrev="1.0-SNAPSHOT"/>
@@ -354,6 +415,18 @@
 				<artifacts>
 					<artifact name="spring-core" type="jar" ext="jar" status="no" details="" size="1121720" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.springframework\spring-core\jars\spring-core-4.3.9.RELEASE.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/springframework/spring-core/4.3.9.RELEASE/spring-core-4.3.9.RELEASE.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-logging" name="commons-logging">
+			<revision name="1.2" status="release" pubdate="20140705131228" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-logging/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="99">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="11725" time="0" location="C:\Users\JuanDavid\.ivy2\cache\commons-logging\commons-logging\ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom"/>
+				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="4.4"/>
+				<artifacts>
+					<artifact name="commons-logging" type="jar" ext="jar" status="no" details="" size="61829" time="0" location="C:\Users\JuanDavid\.ivy2\cache\commons-logging\commons-logging\jars\commons-logging-1.2.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -610,10 +683,17 @@
 				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="13516" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.commons\commons-lang3\ivy-3.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.pom"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="3.6" rev-constraint-default="3.6" rev-constraint-dynamic="3.6" callerrev="2.6.3"/>
+				<caller organisation="com.cloudinary" name="cloudinary-http44" conf="default, compile, runtime, master" rev="3.1" rev-constraint-default="3.1" rev-constraint-dynamic="3.1" callerrev="1.13.0"/>
 				<artifacts>
 					<artifact name="commons-lang3" type="jar" ext="jar" status="no" details="" size="494856" time="0" location="C:\Users\JuanDavid\.ivy2\cache\org.apache.commons\commons-lang3\jars\commons-lang3-3.6.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar"/>
 					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="3.1" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+				<evicted-by rev="3.6"/>
+				<caller organisation="com.cloudinary" name="cloudinary-http44" conf="default, compile, runtime, master" rev="3.1" rev-constraint-default="3.1" rev-constraint-dynamic="3.1" callerrev="1.13.0"/>
+				<artifacts>
 				</artifacts>
 			</revision>
 		</module>
@@ -775,11 +855,18 @@
 			<revision name="1.10" status="release" pubdate="20141106091535" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-codec/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="37">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="10706" time="0" location="C:\Users\JuanDavid\.ivy2\cache\commons-codec\commons-codec\ivy-1.10.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.pom"/>
+				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="1.9" rev-constraint-default="1.9" rev-constraint-dynamic="1.9" callerrev="4.4"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="1.10" rev-constraint-default="1.10" rev-constraint-dynamic="1.10" callerrev="2.6.3"/>
 				<artifacts>
 					<artifact name="commons-codec" type="jar" ext="jar" status="no" details="" size="284184" time="0" location="C:\Users\JuanDavid\.ivy2\cache\commons-codec\commons-codec\jars\commons-codec-1.10.jar">
 						<origin-location is-local="false" location="UNKNOWN"/>
 					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="1.9" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+				<evicted-by rev="1.10"/>
+				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="1.9" rev-constraint-default="1.9" rev-constraint-dynamic="1.9" callerrev="4.4"/>
+				<artifacts>
 				</artifacts>
 			</revision>
 		</module>

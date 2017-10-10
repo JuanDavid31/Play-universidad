@@ -2,25 +2,40 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# An example controller showing a sample home page
-#GET     /                           controllers.HomeController.index
-# An example controller showing how to use dependency injection
-#GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-
-#GET     /saludo/:nombre             controllers.HomeController.saludo(nombre: String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /                          controllers.SuperController.indice
+GET     /                                   controllers.SuperController.indice()
 
-GET     /usuarios                      controllers.SuperController.mostrarUsuarios
+GET     /usuarios                           controllers.SuperController.mostrarUsuarios()
 
-GET     /agregarUsuario/:id/:nombre        controllers.SuperController.adicionarUsuario(id: Int, nombre: String)
+GET     /adicionarUsuario                   controllers.SuperController.adicionarUsuario()
 
-GET     /eliminarUsuario/:id                controllers.SuperController.eliminarUsuario(id: Int)
+POST    /guardarUsuario                     controllers.SuperController.guardarUsuario()
 
-GET     /agregarUsuariosRandom              controllers.SuperController.agregarUsuariosRandom
+GET     /editarUsuario                      controllers.SuperController.editarUsuario(id: Integer)
 
-GET     /eliminarUsuarios                   controllers.SuperController.eliminarUsuarios
+POST    /actualizarUsuario                  controllers.SuperController.actualizarUsuario(id: Int)
+
+GET     /eliminarUsuario                    controllers.SuperController.eliminarUsuario(id: Int)
+
+GET     /adicionarUsuariosRandom            controllers.SuperController.agregarUsuariosRandom()
+
+GET     /eliminarUsuarios                   controllers.SuperController.eliminarUsuarios()
+
+GET     /canciones                          controllers.SuperController.mostrarCanciones()
+
+GET     /adicionarCancion                   controllers.SuperController.adicionarCancion()
+
+POST    /subirCancion                       controllers.SuperController.subirCancion()
+
+POST    /eliminarCancion                    controllers.SuperController.eliminarCancion(id: Int)
+
+GET     /iniciarSesion                      controllers.SuperController.iniciarSesion(id: Int)
+
+GET     /cerrarSesion                       controllers.SuperController.cerrarSesion()
+
+GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
+
+#GET  /assets/*file                         controllers.Assets.at(path="/public", file)
+

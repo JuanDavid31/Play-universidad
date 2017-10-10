@@ -18,6 +18,7 @@ libraryDependencies ++= Seq(
 libraryDependencies += jdbc
 libraryDependencies += "com.h2database" % "h2" % "1.4.194"
 libraryDependencies += "org.postgresql" % "postgresql" % "9.3-1100-jdbc4" //Este era el indicado
+libraryDependencies += "com.cloudinary" % "cloudinary-http44" % "1.13.0"
 // Testing libraries for dealing with CompletionStage...
 //libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test
 //libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test

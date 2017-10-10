@@ -1,10 +1,10 @@
-@(formulario: Form[CancionEntity])
+@()
 @import helper._
 @plantilla("Adicionar usuario"){
     <div>
         <h1>Subir canción</h1>
             @helper.form(action = helper.CSRF(routes.SuperController.subirCancion()), 'enctype -> "multipart/form-data"){
-                <input type="file" name="picture">
+                <input type="file" name="cancion">
                 <p>
                 <input type="submit">
                 </p>

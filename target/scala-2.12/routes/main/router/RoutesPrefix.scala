@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/play-java-starter-example/conf/routes
-// @DATE:Thu Sep 28 21:58:52 COT 2017
+// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/conf/routes
+// @DATE:Tue Oct 10 19:17:43 COT 2017
 
 
 package router {

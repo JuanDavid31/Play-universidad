@@ -1,5 +1,6 @@
 package controllers;
 
+import models.CancionEntity;
 import models.UsuarioEntity;
 import play.mvc.Controller;
 
@@ -27,6 +28,11 @@ public class UsuarioController extends Controller {
 
     public static void eliminar(UsuarioEntity usuario){
         usuario.delete();
+    }
+
+    public static void adicionarCancion(UsuarioEntity usuario, CancionEntity cancion){
+        usuario.getCanciones().add(cancion);
+        guardar(usuario);
     }
 
 }

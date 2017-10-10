@@ -1,11 +1,10 @@
 package models;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import io.ebean.Finder;
 import io.ebean.Model;
 
 import javax.persistence.*;
-import java.math.BigInteger;
+import java.util.*;
 
 @Entity
 @Table(name = "usuario", schema = "public", catalog = "playdb")
@@ -14,9 +13,13 @@ public class UsuarioEntity extends Model {
     @Id
     private int cId;
     private String dNombre;
+    private List<CancionEntity> canciones;
     public static final Finder<Integer, UsuarioEntity> find = new Finder<>(UsuarioEntity.class);
 
-    @Id
+    public UsuarioEntity() {
+        canciones = new ArrayList<CancionEntity>();
+    }
+
     @Column(name = "c_id")
     public int getcId() {
         return cId;
@@ -34,6 +37,11 @@ public class UsuarioEntity extends Model {
 
     public void setdNombre(String dNombre) {
         this.dNombre = dNombre;
+    }
+
+    @OneToMany(mappedBy = "usuario")
+    public List<CancionEntity> getCanciones() {
+        return canciones;
     }
 
     @Override

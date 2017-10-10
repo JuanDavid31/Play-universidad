@@ -31,6 +31,10 @@ POST    /subirCancion                       controllers.SuperController.subirCan
 
 POST    /eliminarCancion                    controllers.SuperController.eliminarCancion(id: Int)
 
+GET     /iniciarSesion                      controllers.SuperController.iniciarSesion(id: Int)
+
+GET     /cerrarSesion                       controllers.SuperController.cerrarSesion()
+
 GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
 
 #GET  /assets/*file                         controllers.Assets.at(path="/public", file)

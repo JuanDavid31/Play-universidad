@@ -1,10 +1,20 @@
+clean
+compile
+run
+-jvm-debug 9999
+exit
 update
-compile
-run
-compile
+clear
 exit
 compile
 run
-exit
+sbt compile run
 compile
 run
+compile
+-jvm-debug
+-jvm-debug 9999
+help
+all
+-jvm-debug 9999
+exit

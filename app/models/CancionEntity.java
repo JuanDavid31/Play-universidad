@@ -11,20 +11,23 @@ import io.ebean.*;
 @Entity
 @Table(name = "cancion", schema = "public", catalog = "playdb")
 public class CancionEntity extends Model {
-    private BigInteger cId;
-    private String dNombre;
 
     @Id
+    private int cId;
+    private String dNombre;
+    private String dUri;
+    private UsuarioEntity usuario;
+    public static final Finder<Integer, CancionEntity> find = new Finder<>(CancionEntity.class);
+
     @Column(name = "c_id")
-    public BigInteger getcId() {
+    public int getcId() {
         return cId;
     }
 
-    public void setcId(BigInteger cId) {
+    public void setcId(int cId) {
         this.cId = cId;
     }
 
-    @Basic
     @Column(name = "d_nombre")
     public String getdNombre() {
         return dNombre;
@@ -34,23 +37,21 @@ public class CancionEntity extends Model {
         this.dNombre = dNombre;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        CancionEntity that = (CancionEntity) o;
-
-        if (cId != null ? !cId.equals(that.cId) : that.cId != null) return false;
-        if (dNombre != null ? !dNombre.equals(that.dNombre) : that.dNombre != null) return false;
-
-        return true;
+    @Column(name = "d_uri")
+    public String getdUri() {
+        return dUri;
     }
 
-    @Override
-    public int hashCode() {
-        int result = cId != null ? cId.hashCode() : 0;
-        result = 31 * result + (dNombre != null ? dNombre.hashCode() : 0);
-        return result;
+    public void setdUri(String dUri) {
+        this.dUri = dUri;
+    }
+
+    @ManyToOne(optional = false) @JoinColumn(name = "c_id_usuario")
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
     }
 }

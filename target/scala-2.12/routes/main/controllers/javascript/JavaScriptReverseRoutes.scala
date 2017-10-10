@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/play-java-starter-example/conf/routes
-// @DATE:Thu Sep 28 21:58:52 COT 2017
+// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/conf/routes
+// @DATE:Tue Oct 10 19:17:43 COT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:14
+// @LINE:8
 package controllers.javascript {
 
-  // @LINE:16
+  // @LINE:8
   class ReverseSuperController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,37 @@ package controllers.javascript {
     }
 
   
+    // @LINE:36
+    def cerrarSesion: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.cerrarSesion",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cerrarSesion"})
+        }
+      """
+    )
+  
     // @LINE:16
+    def editarUsuario: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.editarUsuario",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "editarUsuario" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Integer]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:26
+    def mostrarCanciones: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.mostrarCanciones",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "canciones"})
+        }
+      """
+    )
+  
+    // @LINE:8
     def indice: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.SuperController.indice",
       """
@@ -30,17 +60,47 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
-    def adicionarUsuario: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.SuperController.adicionarUsuario",
+    // @LINE:30
+    def subirCancion: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.subirCancion",
       """
-        function(id0,nombre1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "agregarUsuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("nombre", nombre1))})
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "subirCancion"})
         }
       """
     )
   
-    // @LINE:26
+    // @LINE:14
+    def guardarUsuario: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.guardarUsuario",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "guardarUsuario"})
+        }
+      """
+    )
+  
+    // @LINE:18
+    def actualizarUsuario: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.actualizarUsuario",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "actualizarUsuario" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:28
+    def adicionarCancion: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.adicionarCancion",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "adicionarCancion"})
+        }
+      """
+    )
+  
+    // @LINE:24
     def eliminarUsuarios: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.SuperController.eliminarUsuarios",
       """
@@ -50,7 +110,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:10
     def mostrarUsuarios: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.SuperController.mostrarUsuarios",
       """
@@ -60,29 +120,59 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
+    // @LINE:22
     def agregarUsuariosRandom: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.SuperController.agregarUsuariosRandom",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "agregarUsuariosRandom"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "adicionarUsuariosRandom"})
         }
       """
     )
   
-    // @LINE:22
+    // @LINE:34
+    def iniciarSesion: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.iniciarSesion",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "iniciarSesion" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:20
     def eliminarUsuario: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.SuperController.eliminarUsuario",
       """
         function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "eliminarUsuario/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id0))})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "eliminarUsuario" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:32
+    def eliminarCancion: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.eliminarCancion",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "eliminarCancion" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def adicionarUsuario: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.SuperController.adicionarUsuario",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "adicionarUsuario"})
         }
       """
     )
   
   }
 
-  // @LINE:14
+  // @LINE:38
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -90,7 +180,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:14
+    // @LINE:38
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
