@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/conf/routes
-// @DATE:Tue Oct 10 19:17:43 COT 2017
+// @SOURCE:/home/juan/Documentos/Play Java/Play-universidad/conf/routes
+// @DATE:Thu Oct 12 11:03:36 COT 2017
 
 package router
 
@@ -46,7 +46,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """guardarUsuario""", """controllers.SuperController.guardarUsuario()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """editarUsuario""", """controllers.SuperController.editarUsuario(id:Integer)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """actualizarUsuario""", """controllers.SuperController.actualizarUsuario(id:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """eliminarUsuario""", """controllers.SuperController.eliminarUsuario(id:Int)"""),
+    ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """eliminarUsuario""", """controllers.SuperController.eliminarUsuario(id:Int)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """adicionarUsuariosRandom""", """controllers.SuperController.agregarUsuariosRandom()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """eliminarUsuarios""", """controllers.SuperController.eliminarUsuarios()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """canciones""", """controllers.SuperController.mostrarCanciones()"""),
@@ -172,7 +172,7 @@ class Routes(
   )
 
   // @LINE:20
-  private[this] lazy val controllers_SuperController_eliminarUsuario6_route = Route("GET",
+  private[this] lazy val controllers_SuperController_eliminarUsuario6_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("eliminarUsuario")))
   )
   private[this] lazy val controllers_SuperController_eliminarUsuario6_invoker = createInvoker(
@@ -182,7 +182,7 @@ class Routes(
       "controllers.SuperController",
       "eliminarUsuario",
       Seq(classOf[Int]),
-      "GET",
+      "DELETE",
       this.prefix + """eliminarUsuario""",
       """""",
       Seq()

@@ -23,11 +23,16 @@ i {
   a {
     height: 50%;
     width: 25%; 
+    font-size:40px;
+
+    &:hover{
+      text-decoration: none;
+    }
   }
 }
 
 .carta {
-  background-color: #2E8241;
+  background-color: #54A165;
   height: 100%;
   width: 100%;
   transition: 200ms;
@@ -36,10 +41,12 @@ i {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-radius: 10%; }
+  border-radius: 10%; 
 
-.carta:hover {
-  transform: scale(1.2); }
+  &:hover{
+    transform: scale(1.2);
+  }
+}
 
 .usuarios {
   height: 100%;
@@ -53,8 +60,15 @@ i {
   width:70%;
   display:flex;
   flex-direction: column;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  .usuario{
+    font-size: 24px;
+    animation-name: titilar;
+    animation-duration: 2s;
+    animation-iteration-count:infinite ;
+  }
 }
 
 .cabecera {
@@ -81,17 +95,35 @@ i {
   align-items: center;
   transition: all 200ms; 
 
+  *{
+    min-width: 120px;
+    max-width: 140px;
+    text-align: center;
+  }
+
   p{
-    margin-bottom: 0px;
+    margin-bottom: 0px; 
   }
 
   .btn{
     border-radius:50px;
   }
+
+  form{
+    margin:0px;
+  }
 }
 
-.fila:hover {
-  transform: scale(1.2); 
+.fila-usuario{
+  @extend .fila;
+  &:hover{
+    transform: scale(1.2);
+  }
+
+}
+
+.fila-cancion{
+  @extend .fila;
 }
 
 #div-editar{
@@ -110,6 +142,21 @@ i {
       }
     }
   }
+}
+
+.alert{
+  position:fixed;
+  top:0%;
+}
+
+.close{
+  margin-left: 5px;
+}
+
+@keyframes titilar{
+  0%{ opacity :1}
+  50%{opacity :0}
+  100%{opacity :1}
 }
 
 /*# sourceMappingURL=main.css.map */

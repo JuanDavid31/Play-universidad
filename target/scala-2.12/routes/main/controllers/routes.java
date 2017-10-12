@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/conf/routes
-// @DATE:Tue Oct 10 19:17:43 COT 2017
+// @SOURCE:/home/juan/Documentos/Play Java/Play-universidad/conf/routes
+// @DATE:Thu Oct 12 11:03:36 COT 2017
 
 package controllers;
 

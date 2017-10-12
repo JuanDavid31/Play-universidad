@@ -22,7 +22,8 @@ public class CancionController extends Controller {
         return CancionEntity.find.ref(id);
     }
 
-    public static void adicionar(CancionEntity cancion){
+    public static void adicionarUsuarioACancion(UsuarioEntity usuario, CancionEntity cancion){
+        cancion.setUsuario(usuario);
         cancion.save();
     }
 
@@ -35,7 +36,7 @@ public class CancionController extends Controller {
         File archivo = subir(body);
         if(archivo != null){
             Map resultados = alojarEnCloudDinary(archivo);
-            resultados.put("nombre", archivo.getName());
+            resultados.put("nombre", body.getFile("cancion").getFilename());
             guardar(resultados);
             // aquí haría falta un flash para subida exitosa
             return redirect("/canciones");
@@ -45,13 +46,16 @@ public class CancionController extends Controller {
     }
 
     private static File subir(Http.MultipartFormData body){
-        FilePart<File> archivoCancion = body.getFile("cancion");
-        if (archivoCancion != null){ //aquí iria la condición para saber si es mp3 o no
-            return  archivoCancion.getFile();
+        FilePart<File> archivo = body.getFile("cancion");
+        if (cancionValida(archivo)){
+            return  archivo.getFile();
         }else {
             return null;
         }
+    }
 
+    private static boolean cancionValida(FilePart<File> archivo){
+        return archivo != null && (archivo.getFilename().endsWith(".mp3") || archivo.getFilename().endsWith(".MP3"));
     }
 
     private static Map alojarEnCloudDinary(File cancion) throws IOException {
@@ -67,10 +71,8 @@ public class CancionController extends Controller {
         UsuarioEntity usuario = UsuarioController.darUsuario(Integer.parseInt(session("conectado")));
         CancionEntity cancion = new CancionEntity();
         cancion.setdNombre(datos.get("nombre").toString());
-        cancion.setdUri(datos.get("uri").toString());
-        cancion.setUsuario(usuario);
+        cancion.setdUri(datos.get("url").toString());
+        adicionarUsuarioACancion(usuario, cancion);
         UsuarioController.adicionarCancion(usuario, cancion);
-        adicionar(cancion);
     }
-
 }

@@ -69,7 +69,8 @@ public class SuperController extends Controller {
     public Result eliminarUsuarios(){
         List<UsuarioEntity> usuarios = UsuarioController.darTodos();
         for(UsuarioEntity usuario : usuarios){
-            System.out.println(usuario.toString() + " " + usuario.delete());
+            System.out.println(usuario.toString());
+            UsuarioController.eliminar(usuario);
         }
         return redirect("/usuarios");
     }
@@ -101,6 +102,14 @@ public class SuperController extends Controller {
         CancionEntity cancion = CancionController.darCancion(id);
         CancionController.eliminar(cancion);
         return redirect("/canciones");
+    }
+
+    public static String darSesionActual(){
+        String id = session("conectado");
+        if(id != null){
+            return UsuarioController.darUsuario(Integer.parseInt(id)).getdNombre();
+        }
+        return "Sesion no iniciada";
     }
 
     public Result iniciarSesion(int id){

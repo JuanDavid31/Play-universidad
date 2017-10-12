@@ -4,8 +4,6 @@
 /.project
 /.settings
 /RUNNING_PID
-/idea
-/target
 # Ignore Play! working directory #
 bin/
 /db

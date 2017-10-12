@@ -59,10 +59,10 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Oct 11 02:31:08 COT 2017
-                  SOURCE: C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/app/views/adicionarCancion.scala.html
-                  HASH: b693f5b8b6ea79aac3924aa20acd6d479244278f
-                  MATRIX: 952->1|1027->6|1071->3|1099->24|1137->54|1175->55|1207->61|1285->113|1299->119|1409->220|1448->221|1493->239|1655->370|1688->376|1727->385
+                  DATE: Wed Oct 11 23:33:52 COT 2017
+                  SOURCE: /home/juan/Documentos/Play Java/Play-universidad/app/views/adicionarCancion.scala.html
+                  HASH: 3c2c74715dc0debe81edccc697e40fbd4d9cef60
+                  MATRIX: 952->1|1027->5|1071->3|1098->22|1136->52|1174->53|1205->58|1281->108|1295->114|1405->215|1444->216|1488->233|1646->360|1678->365|1716->373
                   LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|38->6|38->6|38->6|39->7|43->11|44->12|45->13
                   -- GENERATED --
               */

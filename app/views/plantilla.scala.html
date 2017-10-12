@@ -11,6 +11,14 @@
         <title>@titulo</title>
     </head>
     <body>
+        <div class="alert alert-success">
+            <Strong>@SuperController.darSesionActual()</Strong>
+            <a href="@routes.SuperController.cerrarSesion()">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </a>
+        </div>          
         @cuerpo
     </body>
 </html>

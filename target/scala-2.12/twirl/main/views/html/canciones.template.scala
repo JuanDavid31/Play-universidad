@@ -39,7 +39,7 @@ Seq[Any](format.raw/*1.34*/("""
         </div>
         <div class="filas">
         """),_display_(/*9.10*/for(cancion <- canciones) yield /*9.35*/{_display_(Seq[Any](format.raw/*9.36*/("""
-            """),format.raw/*10.13*/("""<div class="fila">
+            """),format.raw/*10.13*/("""<div class="fila-cancion">
                 <p>"""),_display_(/*11.21*/cancion/*11.28*/.getdNombre()),format.raw/*11.41*/("""</p>
                 <audio src=""""),_display_(/*12.30*/cancion/*12.37*/.getdUri()),format.raw/*12.47*/("""" controls>
                     Your browser does not support audio.
@@ -67,10 +67,10 @@ Seq[Any](format.raw/*1.34*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Oct 11 02:31:08 COT 2017
-                  SOURCE: C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/app/views/canciones.scala.html
-                  HASH: 731f0e9d1b47225cb84444d889dab1a89de3b8f9
-                  MATRIX: 965->1|1070->36|1115->33|1143->54|1173->76|1211->77|1243->83|1378->192|1392->198|1447->233|1550->310|1590->335|1628->336|1670->350|1737->390|1753->397|1787->410|1849->445|1865->452|1896->462|2037->576|2052->582|2147->667|2187->668|2237->690|2348->770|2390->784|2438->801|2475->811
+                  DATE: Thu Oct 12 09:07:49 COT 2017
+                  SOURCE: /home/juan/Documentos/Play Java/Play-universidad/app/views/canciones.scala.html
+                  HASH: c1ee4f7ef2dc8819056f4de062254dda7b1e0649
+                  MATRIX: 965->1|1070->35|1115->33|1142->52|1172->74|1210->75|1241->80|1374->187|1388->193|1443->228|1543->302|1583->327|1621->328|1662->341|1736->388|1752->395|1786->408|1847->442|1863->449|1894->459|2032->570|2047->576|2142->661|2182->662|2231->683|2341->762|2382->775|2429->791|2465->800
                   LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|38->6|38->6|41->9|41->9|41->9|42->10|43->11|43->11|43->11|44->12|44->12|44->12|47->15|47->15|47->15|47->15|48->16|49->17|50->18|51->19|52->20
                   -- GENERATED --
               */

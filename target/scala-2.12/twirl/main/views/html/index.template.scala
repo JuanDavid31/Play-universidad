@@ -63,10 +63,10 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 10 19:14:46 COT 2017
-                  SOURCE: C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/app/views/index.scala.html
-                  HASH: 224d3cf7610ecaa1e62dc0ad278bd92da0fab9d0
-                  MATRIX: 941->1|1037->3|1065->5|1154->69|1178->85|1216->86|1248->92|1309->127|1323->133|1377->167|1579->342|1594->348|1650->383
+                  DATE: Wed Oct 11 23:33:52 COT 2017
+                  SOURCE: /home/juan/Documentos/Play Java/Play-universidad/app/views/index.scala.html
+                  HASH: 8a02637e284a5c153afecb9f4b225bb4a49c47e8
+                  MATRIX: 941->1|1037->3|1064->4|1152->67|1176->83|1214->84|1245->89|1305->123|1319->129|1373->163|1569->332|1584->338|1640->373
                   LINES: 28->1|33->1|34->2|35->3|35->3|35->3|36->4|37->5|37->5|37->5|43->11|43->11|43->11
                   -- GENERATED --
               */

@@ -57,10 +57,10 @@ Seq[Any](format.raw/*1.35*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 10 19:14:46 COT 2017
-                  SOURCE: C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/app/views/editarUsuario.scala.html
-                  HASH: 022ff07b4a2aedef9ff1dc83d8e7c6b389b5fb4f
-                  MATRIX: 969->1|1075->37|1098->55|1157->34|1185->87|1220->114|1258->115|1290->121|1381->186|1395->192|1500->288|1539->289|1580->304|1623->327|1664->341|1780->426|1813->432
+                  DATE: Wed Oct 11 23:33:52 COT 2017
+                  SOURCE: /home/juan/Documentos/Play Java/Play-universidad/app/views/editarUsuario.scala.html
+                  HASH: 4bfb9068efdd0e17b194644e42228020f941d315
+                  MATRIX: 969->1|1075->36|1098->53|1157->34|1184->84|1219->111|1257->112|1288->117|1377->180|1391->186|1496->282|1535->283|1575->297|1618->320|1658->333|1773->417|1805->422
                   LINES: 28->1|31->2|32->3|35->1|36->4|36->4|36->4|37->5|39->7|39->7|39->7|39->7|40->8|40->8|41->9|42->10|43->11
                   -- GENERATED --
               */

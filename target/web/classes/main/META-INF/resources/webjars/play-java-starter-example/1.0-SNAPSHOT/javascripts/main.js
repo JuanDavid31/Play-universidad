@@ -1,5 +1,14 @@
-$( document ).ready(function() {
-    $("#div-usuarios").click(function(){
-        window.location.hash = "#usuarios";
+function deleteRequest(id){
+    console.log(id);
+    $.ajax({
+        url: deleteUrl,
+        method: "DELETE",
+        succes: function(){
+            windows.location = redirectUrl;
+        },
+        error: function(){
+            window.location.reload();
+        }
     });
-});
+
+}

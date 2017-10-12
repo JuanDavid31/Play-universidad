@@ -17,7 +17,7 @@ GET     /editarUsuario                      controllers.SuperController.editarUs
 
 POST    /actualizarUsuario                  controllers.SuperController.actualizarUsuario(id: Int)
 
-GET     /eliminarUsuario                    controllers.SuperController.eliminarUsuario(id: Int)
+DELETE  /eliminarUsuario                    controllers.SuperController.eliminarUsuario(id: Int)
 
 GET     /adicionarUsuariosRandom            controllers.SuperController.agregarUsuariosRandom()
 

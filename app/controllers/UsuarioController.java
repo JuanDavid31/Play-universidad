@@ -27,6 +27,10 @@ public class UsuarioController extends Controller {
     }
 
     public static void eliminar(UsuarioEntity usuario){
+        List<CancionEntity> canciones = usuario.getCanciones();
+        for(CancionEntity cancion: canciones){
+            CancionController.eliminar(cancion);
+        }
         usuario.delete();
     }
 

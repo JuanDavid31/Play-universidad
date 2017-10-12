@@ -6,8 +6,8 @@
         </div>
         <div class="filas">
             @for(usuario <- usuarios){
-                <div class="fila">
-                    <a href="@routes.SuperController.iniciarSesion(usuario.getcId())">@usuario.getdNombre()</a>
+                <div class="fila-usuario">
+                    <a class="usuario" href="@routes.SuperController.iniciarSesion(usuario.getcId())">@usuario.getdNombre()</a>
                     <a class="btn btn-info" href="@routes.SuperController.editarUsuario(usuario.getcId())">Editar</a>
                     <a class="btn btn-danger" href="@routes.SuperController.eliminarUsuario(usuario.getcId())">Eliminar</a>
                 </div>

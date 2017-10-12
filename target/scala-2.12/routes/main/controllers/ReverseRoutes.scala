@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/conf/routes
-// @DATE:Tue Oct 10 19:17:43 COT 2017
+// @SOURCE:/home/juan/Documentos/Play Java/Play-universidad/conf/routes
+// @DATE:Thu Oct 12 11:03:36 COT 2017
 
 import play.api.mvc.Call
 
@@ -94,7 +94,7 @@ package controllers {
     // @LINE:20
     def eliminarUsuario(id:Int): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "eliminarUsuario" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
+      Call("DELETE", _prefix + { _defaultPrefix } + "eliminarUsuario" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[Int]].unbind("id", id)))))
     }
   
     // @LINE:32

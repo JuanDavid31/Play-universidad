@@ -48,10 +48,10 @@ Seq[Any](format.raw/*1.35*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 10 19:14:46 COT 2017
-                  SOURCE: C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/app/views/_formulario.scala.html
-                  HASH: cd1315f0a6051a34337441fe8abecb0a8b531aaf
-                  MATRIX: 967->1|1095->34|1125->39|1138->45
+                  DATE: Wed Oct 11 23:33:52 COT 2017
+                  SOURCE: /home/juan/Documentos/Play Java/Play-universidad/app/views/_formulario.scala.html
+                  HASH: 4d5f05252d3efd26e6ed14fae1c4afd590bd2851
+                  MATRIX: 967->1|1095->34|1123->37|1136->43
                   LINES: 28->1|33->1|35->3|35->3
                   -- GENERATED --
               */

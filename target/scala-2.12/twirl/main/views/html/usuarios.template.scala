@@ -38,10 +38,10 @@ Seq[Any](format.raw/*1.33*/("""
         </div>
         <div class="filas">
             """),_display_(/*8.14*/for(usuario <- usuarios) yield /*8.38*/{_display_(Seq[Any](format.raw/*8.39*/("""
-                """),format.raw/*9.17*/("""<div class="fila">
-                    <a href=""""),_display_(/*10.31*/routes/*10.37*/.SuperController.iniciarSesion(usuario.getcId())),format.raw/*10.85*/("""">"""),_display_(/*10.88*/usuario/*10.95*/.getdNombre()),format.raw/*10.108*/("""</a>
+                """),format.raw/*9.17*/("""<div class="fila-usuario">
+                    <a class="usuario" href=""""),_display_(/*10.47*/routes/*10.53*/.SuperController.iniciarSesion(usuario.getcId())),format.raw/*10.101*/("""">"""),_display_(/*10.104*/usuario/*10.111*/.getdNombre()),format.raw/*10.124*/("""</a>
                     <a class="btn btn-info" href=""""),_display_(/*11.52*/routes/*11.58*/.SuperController.editarUsuario(usuario.getcId())),format.raw/*11.106*/("""">Editar</a>
-                    <a class="btn btn-danger" href=""""),_display_(/*12.54*/routes/*12.60*/.SuperController.eliminarUsuario(usuario.getcId())),format.raw/*12.110*/("""">Eliminar</a>
+                    <a class="btn btn-danger" onclick="deleteRequest("""),_display_(/*12.71*/usuario/*12.78*/.getcId()),format.raw/*12.87*/(""")" href="#">Eliminar</a>
                 </div>
             """)))}),format.raw/*14.14*/("""
         """),format.raw/*15.9*/("""</div>
@@ -62,10 +62,10 @@ Seq[Any](format.raw/*1.33*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 10 19:14:46 COT 2017
-                  SOURCE: C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/app/views/usuarios.scala.html
-                  HASH: bfb1a0b830b16a74419bd37e6871d01b14909dd8
-                  MATRIX: 964->1|1090->32|1118->35|1147->56|1185->57|1217->63|1352->172|1366->178|1421->213|1528->294|1567->318|1605->319|1650->337|1727->387|1742->393|1811->441|1841->444|1857->451|1892->464|1976->521|1991->527|2061->575|2155->642|2170->648|2242->698|2326->751|2363->761
+                  DATE: Thu Oct 12 11:22:07 COT 2017
+                  SOURCE: /home/juan/Documentos/Play Java/Play-universidad/app/views/usuarios.scala.html
+                  HASH: 3cbe239877dfecbb3370654fec8422aab2de73a5
+                  MATRIX: 964->1|1090->32|1117->34|1146->55|1184->56|1215->61|1348->168|1362->174|1417->209|1521->287|1560->311|1598->312|1642->329|1742->402|1757->408|1827->456|1858->459|1875->466|1910->479|1993->535|2008->541|2078->589|2188->672|2204->679|2234->688|2326->749|2362->758
                   LINES: 28->1|33->1|34->2|34->2|34->2|35->3|37->5|37->5|37->5|40->8|40->8|40->8|41->9|42->10|42->10|42->10|42->10|42->10|42->10|43->11|43->11|43->11|44->12|44->12|44->12|46->14|47->15
                   -- GENERATED --
               */

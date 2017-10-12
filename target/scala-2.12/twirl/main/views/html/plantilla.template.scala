@@ -43,8 +43,16 @@ Seq[Any](format.raw/*1.32*/("""
         <title>"""),_display_(/*11.17*/titulo),format.raw/*11.23*/("""</title>
     </head>
     <body>
-        """),_display_(/*14.10*/cuerpo),format.raw/*14.16*/("""
-    """),format.raw/*15.5*/("""</body>
+        <div class="alert alert-success">
+            <Strong>"""),_display_(/*15.22*/SuperController/*15.37*/.darSesionActual()),format.raw/*15.55*/("""</Strong>
+            <a href=""""),_display_(/*16.23*/routes/*16.29*/.SuperController.cerrarSesion()),format.raw/*16.60*/("""">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </a>
+        </div>          
+        """),_display_(/*22.10*/cuerpo),format.raw/*22.16*/("""
+    """),format.raw/*23.5*/("""</body>
 </html>"""))
       }
     }
@@ -61,11 +69,11 @@ Seq[Any](format.raw/*1.32*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 10 19:14:46 COT 2017
-                  SOURCE: C:/Users/JuanDavid/Desktop/Play Java/Play-universidad/app/views/plantilla.scala.html
-                  HASH: 1af2fdb1fb6f5eaa48891edaf2fceab6c10e6cf2
-                  MATRIX: 957->1|1082->31|1114->37|1213->110|1227->116|1324->192|1407->249|1421->255|1522->335|1605->392|1619->398|1681->439|1733->465|1747->471|1815->519|1900->577|1915->583|1976->623|2055->675|2082->681|2153->725|2180->731|2213->737
-                  LINES: 28->1|33->1|36->4|38->6|38->6|38->6|39->7|39->7|39->7|40->8|40->8|40->8|41->9|41->9|41->9|42->10|42->10|42->10|43->11|43->11|46->14|46->14|47->15
+                  DATE: Thu Oct 12 01:00:06 COT 2017
+                  SOURCE: /home/juan/Documentos/Play Java/Play-universidad/app/views/plantilla.scala.html
+                  HASH: d96dbddd4ee2090104e5c3afce7a8413508aa5b4
+                  MATRIX: 957->1|1082->31|1111->34|1208->105|1222->111|1319->187|1401->243|1415->249|1516->329|1598->385|1612->391|1674->432|1725->457|1739->463|1807->511|1891->568|1906->574|1967->614|2045->665|2072->671|2194->766|2218->781|2257->799|2316->831|2331->837|2383->868|2622->1080|2649->1086|2681->1091
+                  LINES: 28->1|33->1|36->4|38->6|38->6|38->6|39->7|39->7|39->7|40->8|40->8|40->8|41->9|41->9|41->9|42->10|42->10|42->10|43->11|43->11|47->15|47->15|47->15|48->16|48->16|48->16|54->22|54->22|55->23
                   -- GENERATED --
               */
           
