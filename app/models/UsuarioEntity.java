@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "usuario", schema = "public", catalog = "playdb")
 public class UsuarioEntity extends Model {
 
     @Id
