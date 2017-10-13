@@ -24,13 +24,5 @@ libraryDependencies += "com.cloudinary" % "cloudinary-http44" % "1.13.0"
 //libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test
 
 
-// Make verbose tests
-testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v"))
-
-//playEbeanModels in Compile := Seq("models.*")
-//playEbeanDebugLevel := 4
-//playEbeanAgentArgs += ("detect" -> "false")
-
-// React
-
+PlayKeys.externalizeResources := false
 
