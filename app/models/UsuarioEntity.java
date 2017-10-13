@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "usuario")
 public class UsuarioEntity extends Model {
 
     @Id

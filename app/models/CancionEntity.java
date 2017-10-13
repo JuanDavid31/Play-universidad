@@ -9,6 +9,7 @@ import io.ebean.*;
 
 
 @Entity
+@Table(name = "cancion")
 public class CancionEntity extends Model {
 
     @Id
