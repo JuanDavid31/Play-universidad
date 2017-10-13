@@ -95,12 +95,6 @@ i {
   align-items: center;
   transition: all 200ms; 
 
-  *{
-    min-width: 120px;
-    max-width: 140px;
-    text-align: center;
-  }
-
   p{
     margin-bottom: 0px; 
   }
@@ -116,6 +110,13 @@ i {
 
 .fila-usuario{
   @extend .fila;
+
+  *{
+    min-width: 120px;
+    max-width: 140px;
+    text-align: center;
+  }
+
   &:hover{
     transform: scale(1.2);
   }
@@ -124,6 +125,11 @@ i {
 
 .fila-cancion{
   @extend .fila;
+
+  p{
+    min-width: 250px;
+    max-width: 250px;
+  }
 }
 
 #div-editar{

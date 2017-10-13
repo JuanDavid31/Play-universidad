@@ -74,10 +74,6 @@ i {
   justify-content: space-evenly;
   align-items: center;
   transition: all 200ms; }
-  .fila *, .fila-usuario *, .fila-cancion * {
-    min-width: 120px;
-    max-width: 140px;
-    text-align: center; }
   .fila p, .fila-usuario p, .fila-cancion p {
     margin-bottom: 0px; }
   .fila .btn, .fila-usuario .btn, .fila-cancion .btn {
@@ -85,8 +81,16 @@ i {
   .fila form, .fila-usuario form, .fila-cancion form {
     margin: 0px; }
 
+.fila-usuario * {
+  min-width: 120px;
+  max-width: 140px;
+  text-align: center; }
 .fila-usuario:hover {
   transform: scale(1.2); }
+
+.fila-cancion p {
+  min-width: 250px;
+  max-width: 250px; }
 
 #div-editar {
   padding: 20px;
