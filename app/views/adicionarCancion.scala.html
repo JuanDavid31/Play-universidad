@@ -1,6 +1,6 @@
 @()
 @import helper._
-@plantilla("Adicionar usuario"){
+@plantilla("Adicionar canción"){
     <div>
         <h1>Subir canción</h1>
             @helper.form(action = helper.CSRF(routes.SuperController.subirCancion()), 'enctype -> "multipart/form-data"){

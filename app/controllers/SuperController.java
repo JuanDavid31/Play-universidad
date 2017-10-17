@@ -125,7 +125,7 @@ public class SuperController extends Controller {
 
     public Result darUsuariosJson(){
         List<UsuarioEntity> usuarios = UsuarioController.darTodos();
-        return ok(Json.toJson(usuarios));
+        return ok(Json.toJson(usuarios.get(0)));
     }
 
 }
