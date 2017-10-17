@@ -1,6 +1,7 @@
 package controllers;
 
 import models.*;
+import play.libs.Json;
 import play.mvc.*;
 import views.html.*;
 import javax.inject.*;
@@ -120,6 +121,11 @@ public class SuperController extends Controller {
     public Result cerrarSesion(){
         session().clear();
         return indice();
+    }
+
+    public Result darUsuariosJson(){
+        List<UsuarioEntity> usuarios = UsuarioController.darTodos();
+        return ok(Json.toJson(usuarios));
     }
 
 }
