@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
@@ -15,6 +16,7 @@ public class UsuarioEntity extends Model {
     private int cId;
     @Constraints.Required
     private String dNombre;
+    @JsonManagedReference
     private List<CancionEntity> canciones;
     public static final Finder<Integer, UsuarioEntity> find = new Finder<>(UsuarioEntity.class);
 

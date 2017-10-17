@@ -4,6 +4,8 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 import java.math.BigInteger;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.ebean.*;
 
 
@@ -16,6 +18,7 @@ public class CancionEntity extends Model {
     private int cId;
     private String dNombre;
     private String dUri;
+    @JsonBackReference
     private UsuarioEntity usuario;
     public static final Finder<Integer, CancionEntity> find = new Finder<>(CancionEntity.class);
 
