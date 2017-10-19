@@ -128,4 +128,8 @@ public class SuperController extends Controller {
         return ok(Json.toJson(usuarios));
     }
 
+    public Result rutaSecreta2(){
+	    return ok("fffgg");
+    }
+
 }
