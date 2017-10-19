@@ -135,14 +135,15 @@ public class SuperController extends Controller {
 
         ObjectNode result = Json.newObject();
         result.put("exampleField1", "foobar");
-        result.put("exampleField2", "Hello world!");
+
 
         JsonNode json = request().body().asJson();
         String nombre = json.findPath("nombre").textValue();
         if(nombre == null) {
-            return ok("Missing parameter [nombre]");
+            return ok(result);
         } else {
-            return ok("Hello " + nombre);
+            result.put("nombre", nombre);
+            return ok(result);
         }
     }
 
