@@ -130,9 +130,10 @@ public class SuperController extends Controller {
     }
 
     public Result rutaSecreta2(){
-        JsonNode json = request().body().asJson();
-        String nombre = json.findPath("name").textValue();
-	return ok(Json.toJson("Hola " + nombre));
+	ObjectNode result = Json.newObject();
+	    result.put("exampleField1", "foobar");
+	    result.put("exampleField2", "Hello world!");
+	    return ok(result);
     }
 
 }
