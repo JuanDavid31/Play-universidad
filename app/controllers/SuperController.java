@@ -135,7 +135,7 @@ public class SuperController extends Controller {
         if(nombre == null) {
             return badRequest("No hay nombre en el json broder");
         } else {
-            return ok("Hola " + nombre);
+            return ok(Json.toJson("Hola " + nombre));
         }
     }
 
