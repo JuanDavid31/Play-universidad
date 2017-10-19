@@ -134,7 +134,7 @@ public class SuperController extends Controller {
         JsonNode json = request().body().asJson();
         String nombre = json.findPath("nombre").textValue();
         if(nombre == null) {
-            return badRequest("Missing parameter [nombre]");
+            return ok("Missing parameter [nombre]");
         } else {
             return ok("Hello " + nombre);
         }
