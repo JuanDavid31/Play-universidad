@@ -1,6 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.*;
 import play.libs.Json;
 import play.mvc.*;
@@ -131,7 +132,7 @@ public class SuperController extends Controller {
 
 	@BodyParser.Of(BodyParser.Json.class)
     public Result rutaSecreta2(){
-	ObjectNode result = Json.newObject();
+	    ObjectNode result = Json.newObject();
 	    result.put("exampleField1", "foobar");
 	    result.put("exampleField2", "Hello world!");
 	    return ok(result);
