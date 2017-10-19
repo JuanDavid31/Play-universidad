@@ -129,6 +129,7 @@ public class SuperController extends Controller {
         return ok(Json.toJson(usuarios));
     }
 
+	@BodyParser.Of(BodyParser.Json.class)
     public Result rutaSecreta2(){
 	ObjectNode result = Json.newObject();
 	    result.put("exampleField1", "foobar");
