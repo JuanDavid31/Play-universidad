@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import models.*;
 import play.libs.Json;
 import play.mvc.*;
@@ -128,8 +129,15 @@ public class SuperController extends Controller {
         return ok(Json.toJson(usuarios));
     }
 
+    @BodyParser.Of(BodyParser.Json.class)
     public Result rutaSecreta2(){
-	    return ok("fffgg");
+        JsonNode json = request().body().asJson();
+        String nombre = json.findPath("nombre").textValue();
+        if(nombre == null) {
+            return badRequest("Missing parameter [nombre]");
+        } else {
+            return ok("Hello " + nombre);
+        }
     }
 
 }
