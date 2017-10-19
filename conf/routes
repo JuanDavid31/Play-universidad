@@ -37,6 +37,8 @@ GET     /cerrarSesion                       controllers.SuperController.cerrarSe
 
 GET     /rutaSecreta                       controllers.SuperController.darUsuariosJson()
 
+POST    /rutaSecreta2                       controllers.SuperController.rutaSecreta2()
+
 GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
 
 #GET  /assets/*file                         controllers.Assets.at(path="/public", file)
