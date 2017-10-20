@@ -224,7 +224,7 @@ public class SuperController extends Controller {
         cancion.save();
     }
 
-    public static Result rutaPut(){
+    public Result rutaPut(){
         ObjectNode result = Json.newObject();
         result.put("Metodo", "PUT");
 
@@ -238,7 +238,7 @@ public class SuperController extends Controller {
         }
     }
 
-    public static Result rutaDelete(){
+    public Result rutaDelete(){
         ObjectNode result = Json.newObject();
         result.put("Metodo", "DELETE");
 
