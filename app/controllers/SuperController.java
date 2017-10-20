@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.*;
 import play.libs.Json;
 import play.mvc.*;
+import play.mvc.Http.*;
 import views.html.*;
 import javax.inject.*;
 import play.data.*;
@@ -96,7 +97,7 @@ public class SuperController extends Controller {
     }
 
     public Result subirCancion(){
-        Http.MultipartFormData<File> body = request().body().asMultipartFormData();
+        MultipartFormData<File> body = request().body().asMultipartFormData();
         try {
             return CancionController.subirCancion(body);
         } catch (IOException e) {
@@ -127,129 +128,6 @@ public class SuperController extends Controller {
     public Result cerrarSesion(){
         session().clear();
         return indice();
-    }
-
-    public Result darUsuariosJson(){
-        List<UsuarioEntity> usuarios = UsuarioController.darTodos();
-        return ok(Json.toJson(usuarios));
-    }
-
-    @BodyParser.Of(BodyParser.Json.class)
-    public Result rutaSecreta2(){
-
-        ObjectNode result = Json.newObject();
-        result.put("Metodo", "POST");
-
-        JsonNode json = request().body().asJson();
-        String nombre = json.findPath("nombre").textValue();
-        if(nombre == null) {
-            return ok(result);
-        } else {
-            result.put("nombre", nombre);
-            return ok(result);
-        }
-    }
-
-
-
-    //Ajax para subir archivo
-
-    public Result rutaSecreta3(){
-
-        ObjectNode result = Json.newObject();
-
-        Http.MultipartFormData<File> body = request().body().asMultipartFormData();
-
-        File archivo = subir1(body);
-        if(archivo != null){
-            result.put("Dentrodelif", "El archivo no es null");
-            Map resultados = null;
-            try {
-                resultados = alojarEnCloudDinary1(archivo);
-                result.put("Try", "ya aloje la cancion");
-            } catch (IOException e) {
-                e.printStackTrace();
-                result.put("Catch", "En el catch");
-                return ok(result);
-            }
-            resultados.put("nombre", body.getFiles().get(0).getFilename());
-            guardar1(resultados);
-
-            result.put("resultado", "BUENISIMO");
-
-            //Subida exitosa
-            return ok(result);
-        }
-
-        result.put("resultado", "Malo");
-
-        // Debes subir un archivo en formato .mp3
-        return ok(result);
-
-    }
-
-    private static File subir1(Http.MultipartFormData body){
-        Http.MultipartFormData.FilePart<File> archivo = (Http.MultipartFormData.FilePart<File>) body.getFiles().get(0);
-        if (cancionValida1(archivo)){
-            return  archivo.getFile();
-        }else { System.out.println("El FilePart es null");
-            return null;
-        }
-    }
-
-    private static boolean cancionValida1(Http.MultipartFormData.FilePart<File> archivo){
-        return archivo != null && (archivo.getFilename().endsWith(".mp3") || archivo.getFilename().endsWith(".MP3"));
-    }
-
-    private static Map alojarEnCloudDinary1(File cancion) throws IOException {
-        Map configuracion = new HashMap();
-        configuracion.put("cloud_name","juandavid");
-        configuracion.put("api_key","846846898798748");
-        configuracion.put("api_secret","07y51L8pSLMbFq0IENcKarmZ1c4");
-        Cloudinary cd = new Cloudinary(configuracion);
-        return cd.uploader().upload(cancion, ObjectUtils.asMap("resource_type", "auto"));
-    }
-
-    private static void guardar1(Map datos){
-        UsuarioEntity usuario = UsuarioController.darUsuario(1);
-        CancionEntity cancion = new CancionEntity();
-        cancion.setdNombre(datos.get("nombre").toString());
-        cancion.setdUri(datos.get("url").toString());
-        adicionarUsuarioACancion1(usuario, cancion);
-        UsuarioController.adicionarCancion(usuario, cancion);
-    }
-
-    private static void adicionarUsuarioACancion1(UsuarioEntity usuario, CancionEntity cancion){
-        cancion.setUsuario(usuario);
-        cancion.save();
-    }
-
-    public Result rutaPut(){
-        ObjectNode result = Json.newObject();
-        result.put("Metodo", "PUT");
-
-        JsonNode json = request().body().asJson();
-        String nombre = json.findPath("nombre").textValue();
-        if(nombre == null) {
-            return ok(result);
-        } else {
-            result.put("nombre", nombre);
-            return ok(result);
-        }
-    }
-
-    public Result rutaDelete(){
-        ObjectNode result = Json.newObject();
-        result.put("Metodo", "DELETE");
-
-        JsonNode json = request().body().asJson();
-        String nombre = json.findPath("nombre").textValue();
-        if(nombre == null) {
-            return ok(result);
-        } else {
-            result.put("nombre", nombre);
-            return ok(result);
-        }
     }
 
 }
