@@ -162,11 +162,15 @@ public class SuperController extends Controller {
 
         File archivo = subir1(body);
         if(archivo != null){
+            result.put("Dentrodelif", "El archivo no es null");
             Map resultados = null;
             try {
                 resultados = alojarEnCloudDinary1(archivo);
+                result.put("Try", "ya aloje la cancion");
             } catch (IOException e) {
                 e.printStackTrace();
+                result.put("Catch", "En el catch");
+                return ok(result);
             }
             resultados.put("nombre", body.getFile("cancion").getFilename());
             guardar1(resultados);
