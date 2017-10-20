@@ -1,5 +1,7 @@
 package controllers;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.*;
@@ -11,7 +13,9 @@ import play.data.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SuperController extends Controller {
 
@@ -136,7 +140,6 @@ public class SuperController extends Controller {
         ObjectNode result = Json.newObject();
         result.put("exampleField1", "foobar");
 
-
         JsonNode json = request().body().asJson();
         String nombre = json.findPath("nombre").textValue();
         if(nombre == null) {
@@ -145,6 +148,76 @@ public class SuperController extends Controller {
             result.put("nombre", nombre);
             return ok(result);
         }
+    }
+
+
+
+    //Ajax para subir archivo
+
+    public Result rutaSecreta3(){
+
+        ObjectNode result = Json.newObject();
+
+        Http.MultipartFormData<File> body = request().body().asMultipartFormData();
+
+        File archivo = subir1(body);
+        if(archivo != null){
+            Map resultados = null;
+            try {
+                resultados = alojarEnCloudDinary1(archivo);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            resultados.put("nombre", body.getFile("cancion").getFilename());
+            guardar1(resultados);
+
+            result.put("resultado", "BUENISIMO");
+
+            //Subida exitosa
+            return ok(result);
+        }
+
+        result.put("resultado", "Malo");
+
+        // Debes subir un archivo en formato .mp3
+        return ok(result);
+
+    }
+
+    private static File subir1(Http.MultipartFormData body){
+        Http.MultipartFormData.FilePart<File> archivo = body.getFile("cancion");
+        if (cancionValida1(archivo)){
+            return  archivo.getFile();
+        }else {
+            return null;
+        }
+    }
+
+    private static boolean cancionValida1(Http.MultipartFormData.FilePart<File> archivo){
+        return archivo != null && (archivo.getFilename().endsWith(".mp3") || archivo.getFilename().endsWith(".MP3"));
+    }
+
+    private static Map alojarEnCloudDinary1(File cancion) throws IOException {
+        Map configuracion = new HashMap();
+        configuracion.put("cloud_name","juandavid");
+        configuracion.put("api_key","846846898798748");
+        configuracion.put("api_secret","07y51L8pSLMbFq0IENcKarmZ1c4");
+        Cloudinary cd = new Cloudinary(configuracion);
+        return cd.uploader().upload(cancion, ObjectUtils.asMap("resource_type", "auto"));
+    }
+
+    private static void guardar1(Map datos){
+        UsuarioEntity usuario = UsuarioController.darUsuario(1);
+        CancionEntity cancion = new CancionEntity();
+        cancion.setdNombre(datos.get("nombre").toString());
+        cancion.setdUri(datos.get("url").toString());
+        adicionarUsuarioACancion1(usuario, cancion);
+        UsuarioController.adicionarCancion(usuario, cancion);
+    }
+
+    public static void adicionarUsuarioACancion1(UsuarioEntity usuario, CancionEntity cancion){
+        cancion.setUsuario(usuario);
+        cancion.save();
     }
 
 }
