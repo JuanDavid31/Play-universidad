@@ -58,7 +58,7 @@ public class CancionController extends Controller {
         return archivo != null && (archivo.getFilename().endsWith(".mp3") || archivo.getFilename().endsWith(".MP3"));
     }
 
-    private static Map alojarEnCloudDinary(File cancion) throws IOException {
+    public static Map alojarEnCloudDinary(File cancion) throws IOException {
         Map configuracion = new HashMap();
         configuracion.put("cloud_name","juandavid");
         configuracion.put("api_key","846846898798748");

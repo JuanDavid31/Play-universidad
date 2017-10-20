@@ -35,15 +35,15 @@ GET     /iniciarSesion                      controllers.SuperController.iniciarS
 
 GET     /cerrarSesion                       controllers.SuperController.cerrarSesion()
 
-GET     /rutaSecreta                       controllers.SuperController.darUsuariosJson()
+GET     /usuarios.json                      controllers.ApiController.darUsuariosJson()
 
-POST    /rutaSecreta2                       controllers.SuperController.rutaSecreta2()
+POST    /adicionarUsuario                   controllers.ApiController.adicionarUsuario()
 
-POST    /rutaSecreta3                        controllers.SuperController.rutaSecreta3()
+POST    /adicionarCancionAjax/:id           controllers.ApiController.adicionarCancion(id: Int)
 
-PUT     /rutaPut                            controllers.SuperController.rutaPut()
+PUT     /actualizarUsuario/:id              controllers.ApiController.actualizarUsuario(id: Int)
 
-DELETE  /rutaDelete                         controllers.SuperController.rutaDelete()
+DELETE  /eliminarUsuario/:id                controllers.ApiController.eliminarUsuario(id: Int)
 
 GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
 
