@@ -138,7 +138,7 @@ public class SuperController extends Controller {
     public Result rutaSecreta2(){
 
         ObjectNode result = Json.newObject();
-        result.put("exampleField1", "foobar");
+        result.put("Metodo", "POST");
 
         JsonNode json = request().body().asJson();
         String nombre = json.findPath("nombre").textValue();
@@ -219,9 +219,37 @@ public class SuperController extends Controller {
         UsuarioController.adicionarCancion(usuario, cancion);
     }
 
-    public static void adicionarUsuarioACancion1(UsuarioEntity usuario, CancionEntity cancion){
+    private static void adicionarUsuarioACancion1(UsuarioEntity usuario, CancionEntity cancion){
         cancion.setUsuario(usuario);
         cancion.save();
+    }
+
+    public static Result rutaPut(){
+        ObjectNode result = Json.newObject();
+        result.put("Metodo", "PUT");
+
+        JsonNode json = request().body().asJson();
+        String nombre = json.findPath("nombre").textValue();
+        if(nombre == null) {
+            return ok(result);
+        } else {
+            result.put("nombre", nombre);
+            return ok(result);
+        }
+    }
+
+    public static Result rutaDelete(){
+        ObjectNode result = Json.newObject();
+        result.put("Metodo", "DELETE");
+
+        JsonNode json = request().body().asJson();
+        String nombre = json.findPath("nombre").textValue();
+        if(nombre == null) {
+            return ok(result);
+        } else {
+            result.put("nombre", nombre);
+            return ok(result);
+        }
     }
 
 }
