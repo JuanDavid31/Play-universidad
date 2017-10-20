@@ -39,6 +39,8 @@ GET     /rutaSecreta                       controllers.SuperController.darUsuari
 
 POST    /rutaSecreta2                       controllers.SuperController.rutaSecreta2()
 
+POST    /rutaSecreta3                        controllers.SuperController.rutaSecreta3()
+
 GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
 
 #GET  /assets/*file                         controllers.Assets.at(path="/public", file)
