@@ -192,7 +192,7 @@ public class SuperController extends Controller {
         Http.MultipartFormData.FilePart<File> archivo = body.getFile("cancion");
         if (cancionValida1(archivo)){
             return  archivo.getFile();
-        }else {
+        }else { System.out.println("El FilePart es null");
             return null;
         }
     }
