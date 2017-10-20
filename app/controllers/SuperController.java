@@ -172,7 +172,7 @@ public class SuperController extends Controller {
                 result.put("Catch", "En el catch");
                 return ok(result);
             }
-            resultados.put("nombre", body.getFile("cancion").getFilename());
+            resultados.put("nombre", body.getFiles().get(0).getFilename());
             guardar1(resultados);
 
             result.put("resultado", "BUENISIMO");
