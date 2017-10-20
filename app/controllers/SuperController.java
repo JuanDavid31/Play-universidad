@@ -189,7 +189,7 @@ public class SuperController extends Controller {
     }
 
     private static File subir1(Http.MultipartFormData body){
-        Http.MultipartFormData.FilePart<File> archivo = body.getFile("cancion");
+        Http.MultipartFormData.FilePart<File> archivo = (Http.MultipartFormData.FilePart<File>) body.getFiles().get(0);
         if (cancionValida1(archivo)){
             return  archivo.getFile();
         }else { System.out.println("El FilePart es null");
