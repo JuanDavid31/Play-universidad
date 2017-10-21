@@ -104,12 +104,9 @@ public class ApiController extends Controller {
     }
 
     public Result eliminarUsuario(int id){
-        ObjectNode result = Json.newObject();
-        result.put("Metodo", "DELETE");
         UsuarioEntity usuario = UsuarioController.darUsuario(id);
         if(usuario.delete()){
-            result.put("Resultado", "Usuario eliminado");
-            return ok(result);
+            return ok("Usuario eliminado");
         }
         return internalServerError("No se pudo eliminar el usuario, intente de nuevo");
     }
