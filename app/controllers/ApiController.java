@@ -24,23 +24,17 @@ public class ApiController extends Controller {
     public Result adicionarUsuario(){
         JsonNode json = request().body().asJson();
         String nombre = json.findPath("nombre").textValue();
-        ObjectNode result = Json.newObject();
-        result.put("Metodo", "POST");
-
         if(nombre == null) {
             return badRequest("Nombre es null");
         } else {
             UsuarioEntity usuario = new UsuarioEntity();
             usuario.setdNombre(nombre);
             UsuarioController.guardar(usuario);
-            result.put("Resultado", "Adicionado");
-            return ok(result);
+            return ok("Usuario adicionado");
         }
     }
 
     public Result adicionarCancion(int id){
-
-        ObjectNode result = Json.newObject();
         MultipartFormData<File> body = request().body().asMultipartFormData();
         File archivo = subir(body);
         if(archivo != null){
@@ -52,10 +46,9 @@ public class ApiController extends Controller {
                 return internalServerError("Hubo un problema al subir el archivo, intentelo de nuevo");
             }
             resultados.put("nombre", body.getFiles().get(0).getFilename());
-            result.put("id", id);
+            resultados.put("id", id);
             guardar(resultados);
-            result.put("resultado", "Subida exitosa");
-            return ok(result);
+            return ok("Subida exitosa");
         }
         return badRequest("Debes subir un archivo en formato .mp3");
     }
@@ -88,8 +81,6 @@ public class ApiController extends Controller {
     }
 
     public Result actualizarUsuario(int id){
-        ObjectNode result = Json.newObject();
-        result.put("Metodo", "PUT");
         JsonNode json = request().body().asJson();
         String nombre = json.findPath("nombre").textValue();
         if(nombre == null) {
@@ -98,8 +89,7 @@ public class ApiController extends Controller {
             UsuarioEntity usuario = UsuarioController.darUsuario(id);
             usuario.setdNombre(nombre);
             UsuarioController.guardar(usuario);
-            result.put("Resultado", "Usuario editado");
-            return ok(result);
+            return ok("Usuario editado");
         }
     }
 
